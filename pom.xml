@@ -8,9 +8,10 @@
         <version>2.6.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>lamph.web</groupId>
     <artifactId>story-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>story-api</name>
     <description>story-api</description>
     <properties>
@@ -92,6 +93,7 @@
     </dependencies>
 
     <build>
+        <finalName>story-api</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
