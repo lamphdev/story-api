@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: story-api
+  main:
+    web-application-type: reactive
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/story
+    username: dbmaster
+    password: dbmaster
+    hikari:
+      maximum-pool-size: 30
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
