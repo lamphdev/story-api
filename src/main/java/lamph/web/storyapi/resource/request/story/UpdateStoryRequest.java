@@ -6,6 +6,7 @@ import org.springframework.http.codec.multipart.FilePart;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 public class UpdateStoryRequest {
@@ -27,5 +28,7 @@ public class UpdateStoryRequest {
     private Integer status;
 
     private FilePart thumbnail;
+
+    private List<String> tags;
 
 }

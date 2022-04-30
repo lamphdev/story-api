@@ -7,6 +7,7 @@ import lamph.web.storyapi.domain.Tag;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
@@ -19,6 +20,11 @@ public class TagResource {
 
     private final TagService tagService;
 
+    @GetMapping
+    public Flux<Tag> getList() {
+        return tagService.findAll();
+    }
+
     @PostMapping
     public Mono<Tag> create(@Valid @RequestBody CreateTagRequest request) {
         return tagService.create(request);
@@ -30,7 +36,6 @@ public class TagResource {
                             @Valid @RequestBody UpdateTagRequest request) {
         return tagService.update(id, request);
     }
-
 
 
 }

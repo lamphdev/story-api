@@ -1,6 +1,7 @@
 package lamph.web.storyapi.domain;
 
 import lamph.web.storyapi.resource.request.story.CreateStoryRequest;
+import lamph.web.storyapi.resource.request.story.UpdateStoryRequest;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,12 @@ public class Story {
     @Column(length = 300, nullable = false, unique = true)
     private String name;
 
+    @Column(length = 200)
+    private String ref1;
+
+    @Column
+    private Long ref2;
+
     @Column(length = 300)
     private String thumbnail;
 
@@ -40,8 +47,9 @@ public class Story {
     private Integer status;
 
     public Story(CreateStoryRequest request) {
-
         name = request.getName();
+        ref1 = request.getRef1();
+        ref2 = request.getRef2();
         description =request.getDescription();
         complete = request.getComplete();
         author = request.getAuthor();
@@ -53,6 +61,19 @@ public class Story {
     public Story(CreateStoryRequest request, String thumbnail) {
         this(request);
         this.thumbnail = thumbnail;
+    }
+
+    public Story updateField(UpdateStoryRequest request, String thumbnail) {
+        name = request.getName();
+        description =request.getDescription();
+        complete = request.getComplete();
+        author = request.getAuthor();
+        createdDate = Instant.now();
+        updatedDate = Instant.now();
+        status = request.getStatus();
+        this.thumbnail = thumbnail;
+        updatedDate = Instant.now();
+        return this;
     }
 
 }

@@ -3,3 +3,8 @@ spring:
     name: story-api
   main:
     web-application-type: reactive
+
+space:
+  client_id: ZND72Z7TSYKMMEJW74MU
+  secret_id: gOpWWc9QcEE6/tDRdAhrLMkExVZQWODNz2v+yDtdr1w
+  endpoint: sgp1.digitaloceanspaces.com
